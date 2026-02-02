@@ -1,9 +1,22 @@
-export default function CoreConcepts({ image, title, description }) {
+import React from "react";
+import CoreConcept from "./CoreConcept.jsx";
+import { CORE_CONCEPTS } from "../data";
+
+const CoreConcepts = () => {
   return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
+    <section id="core-concepts">
+      <h2>Core Concepts</h2>
+      <ul>
+        {/* <CoreConcepts {...CORE_CONCEPTS[0]} />
+            <CoreConcepts {...CORE_CONCEPTS[1]} />
+            <CoreConcepts {...CORE_CONCEPTS[2]} />
+            <CoreConcepts {...CORE_CONCEPTS[3]} /> */}
+        {CORE_CONCEPTS.map((concept) => {
+          return <CoreConcept key={concept.title} {...concept} />;
+        })}
+      </ul>
+    </section>
   );
-}
+};
+
+export default CoreConcepts;
